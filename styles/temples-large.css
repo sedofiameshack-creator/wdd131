@@ -1,0 +1,46 @@
+/* ============================================
+   Temple Album — large viewport overrides
+   Loaded only when min-width: 48rem via the
+   <link media="(min-width: 48rem)"> in temples.html
+   ============================================ */
+
+.site-header {
+    padding: var(--space-s) var(--space-l);
+}
+
+.site-title {
+    font-size: 1.85rem;
+}
+
+/* Hamburger button no longer needed on large screens */
+.nav-toggle {
+    display: none;
+}
+
+/* Nav reverts to an inline flex row instead of an off-canvas panel */
+.primary-nav {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.primary-nav ul {
+    flex-direction: row;
+    padding: 0;
+    gap: var(--space-l);
+}
+
+main {
+    padding: var(--space-l) var(--space-l) 4rem;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.temple-grid {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: var(--space-l) var(--space-m);
+}

@@ -1,0 +1,248 @@
+/* ============================================
+   Temple Album — mobile-first base styles
+   ============================================ */
+
+:root {
+    --ink: #2a1f3d;
+    /* deep plum-indigo — headers, text */
+    --dusk: #5b4b8a;
+    /* secondary purple — hover states */
+    --gold: #b8934c;
+    /* accent — trim, active states */
+    --parchment: #f8f5ef;
+    /* warm ivory page background */
+    --alabaster: #ffffff;
+    /* card background */
+    --stone: #6e6b74;
+    /* muted grey — captions, meta text */
+
+    --font-display: "Cormorant Garamond", Georgia, serif;
+    --font-body: "Source Sans 3", system-ui, sans-serif;
+
+    --space-s: 0.75rem;
+    --space-m: 1.5rem;
+    --space-l: 3rem;
+
+    --radius: 6px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--parchment);
+    color: var(--ink);
+    line-height: 1.55;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+    background-color: var(--ink);
+    color: var(--parchment);
+    padding: var(--space-s) var(--space-m);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border-bottom: 3px solid var(--gold);
+}
+
+.site-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.03em;
+    margin: 0;
+}
+
+/* Hamburger toggle — mobile only */
+
+.nav-toggle {
+    background: none;
+    border: 1px solid var(--gold);
+    border-radius: var(--radius);
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-toggle__icon,
+.nav-toggle__icon::before,
+.nav-toggle__icon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 1.25rem;
+    height: 2px;
+    background-color: var(--parchment);
+    transform: translateX(-50%);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle__icon {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav-toggle__icon::before {
+    top: -7px;
+}
+
+.nav-toggle__icon::after {
+    top: 7px;
+}
+
+/* transform to an "X" when nav is open */
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon {
+    background-color: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon::before {
+    top: 0;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon::after {
+    top: 0;
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+/* Nav menu — hidden off-canvas on mobile until toggled */
+
+.primary-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--ink);
+    border-bottom: 3px solid var(--gold);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}
+
+.primary-nav.is-open {
+    max-height: 20rem;
+}
+
+.primary-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: var(--space-s) var(--space-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+}
+
+.nav-link {
+    color: var(--parchment);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+}
+
+.nav-link.is-active {
+    border-bottom-color: var(--gold);
+    color: var(--gold);
+}
+
+/* ---------- Main content ---------- */
+
+main {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: var(--space-l) var(--space-m);
+}
+
+h1 {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-s);
+}
+
+.lede {
+    max-width: 38rem;
+    color: var(--stone);
+    margin: 0 0 var(--space-l);
+}
+
+.temple-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-m);
+}
+
+.temple-card {
+    margin: 0;
+    background-color: var(--alabaster);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(42, 31, 61, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.temple-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(42, 31, 61, 0.18);
+}
+
+.temple-card figcaption {
+    padding: var(--space-s);
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.temple-card figcaption span {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: var(--stone);
+    text-transform: none;
+    letter-spacing: normal;
+    margin-top: 2px;
+}
+
+/* Filtering: hide cards not matching the active category */
+.temple-card.is-hidden {
+    display: none;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    background-color: var(--ink);
+    color: var(--parchment);
+    text-align: center;
+    padding: var(--space-m);
+    font-size: 0.85rem;
+    border-top: 3px solid var(--gold);
+}
+
+footer p {
+    margin: 0.25rem 0;
+}
