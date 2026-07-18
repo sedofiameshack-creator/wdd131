@@ -1,0 +1,210 @@
+/* =========================================================
+   Ghana place page — place.css
+   Palette pulled from the Ghana flag. Layout follows the
+   assignment wireframe:
+     - narrow/mobile: Title -> small image -> Data -> Weather -> Footer
+     - wide view: Title -> large image with Data (left) and
+       Weather (right) cards floated on top -> Footer
+   ========================================================= */
+
+:root {
+    --color-red: #CE1126;
+    --color-gold: #FCD116;
+    --color-green: #006B3F;
+    --color-ink: #14110F;
+    --color-ink-soft: #3A3733;
+    --color-paper: #FFFFFF;
+    --color-card-bg: rgba(255, 255, 255, 0.94);
+
+    --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+    --font-body: 'Work Sans', 'Segoe UI', sans-serif;
+
+    --radius: 6px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-paper);
+    line-height: 1.5;
+}
+
+h1,
+h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ---------- Title bar ---------- */
+
+.title-bar {
+    background: var(--color-red);
+    border-bottom: 5px solid var(--color-green);
+    padding: 1.25rem 1rem;
+    text-align: center;
+}
+
+.title-bar h1 {
+    color: var(--color-paper);
+    font-size: clamp(1.75rem, 6vw, 2.75rem);
+    letter-spacing: 0.02em;
+}
+
+/* ---------- Hero + cards ---------- */
+
+.hero-wrap {
+    position: relative;
+}
+
+.hero-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Data + Weather sections: stacked full-width blocks on narrow/mobile view */
+.data-card,
+.weather-card {
+    background: var(--color-paper);
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.data-card h2,
+.weather-card h2 {
+    color: var(--color-green);
+    font-size: 1.15rem;
+    border-bottom: 2px solid var(--color-green);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.data-card dl,
+.weather-card dl {
+    margin: 0;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed #E3DFD5;
+    font-size: 0.95rem;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.row dt {
+    font-weight: 500;
+    color: var(--color-ink-soft);
+}
+
+.row dd {
+    margin: 0;
+    font-weight: 600;
+    text-align: right;
+}
+
+.weather-card {
+    text-align: center;
+}
+
+.weather-card .row {
+    text-align: left;
+}
+
+/* Wide-view weather icon: CSS pseudo-element emoticon placed right
+   after the "Weather" heading, per assignment spec. */
+.weather-heading::after {
+    content: "⛅";
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Narrow/mobile-view weather icon: SVG, shown centered under the
+   heading; hidden on wide view (see media query below). */
+.weather-icon-mobile {
+    display: block;
+    margin: 0.25rem auto 0.75rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+    background: var(--color-red);
+    color: var(--color-paper);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+}
+
+.site-footer p {
+    margin: 0.15rem 0;
+}
+
+.site-footer .credit {
+    opacity: 0.85;
+    font-size: 0.75rem;
+}
+
+/* =========================================================
+   Media query — wide view
+   Data card floats top-left, Weather card floats top-right,
+   both overlaid on a taller, full-bleed hero image, matching
+   the "wide view" wireframe. The emoticon pseudo-element takes
+   over from the mobile SVG icon at this breakpoint.
+   ========================================================= */
+@media (min-width: 768px) {
+    .hero-img {
+        height: 560px;
+    }
+
+    .data-card,
+    .weather-card {
+        position: absolute;
+        top: 1.5rem;
+        width: 260px;
+        background: var(--color-card-bg);
+        border-radius: var(--radius);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .data-card {
+        left: 1.5rem;
+    }
+
+    .weather-card {
+        right: 1.5rem;
+        text-align: left;
+    }
+
+    .weather-card .row {
+        text-align: left;
+    }
+
+    /* Swap the mobile SVG icon out for the pseudo-element emoticon */
+    .weather-icon-mobile {
+        display: none;
+    }
+
+    .weather-heading::after {
+        content: "⛅";
+    }
+}
+
+/* Below 768px, make sure the pseudo-element is hidden so the SVG
+   is the only weather icon shown, per the mobile wireframe. */
+@media (max-width: 767px) {
+    .weather-heading::after {
+        content: "";
+    }
+}
