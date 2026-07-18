@@ -26,105 +26,105 @@
         <h1>Ghana</h1>
     </header>
 
-    <!-- HERO IMAGE + overlaid Data / Weather cards on wide view -->
-    <div class="hero-wrap">
-        <picture>
-            <!--
-        Responsive hero art via srcset. Hotlinked from Wikimedia Commons
-        (CC BY-SA 3.0, credited in the footer) at three widths so the
-        browser picks the right one for the viewport. NOTE FOR GIOVANI:
-        swap these three URLs for your own photos saved as .webp in an
-        /images folder once downloaded and converted — this sandbox
-        can't fetch/convert binary images, so these are JPGs served at
-        different widths rather than true .webp files. The <picture>/
-        srcset technique itself is fully wired up.
-      -->
-            <source media="(max-width: 640px)"
-                srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Cape%20Coast%2C%20Ghana.JPG?width=640">
-            <source media="(max-width: 1024px)"
-                srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Cape%20Coast%2C%20Ghana.JPG?width=1024">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cape%20Coast%2C%20Ghana.JPG?width=1600"
-                alt="Fishing canoes pulled up on the shore at Elmina harbour near Cape Coast, Ghana" class="hero-img">
-        </picture>
+    <main>
+        <!-- HERO IMAGE + overlaid Data / Weather cards on wide view -->
+        <div class="hero-wrap">
+            <picture>
+                <!--
+          Responsive hero art via srcset, all served as real .webp files
+          at three widths so the browser picks the right one for the
+          viewport. This is an original illustration (sunset coastline,
+          canoes, palm) rather than a stock photo — swap in your own
+          photos in /images (converted to .webp) if you'd rather use a
+          real photograph of Ghana.
+        -->
+                <source media="(max-width: 640px)" srcset="images/ghana-hero-640.webp">
+                <source media="(max-width: 1024px)" srcset="images/ghana-hero-1024.webp">
+                <img src="images/kwame.jpg"
+                    alt="Illustrated Ghanaian coastline at sunset with fishing canoes and a palm tree" class="hero-img">
+            </picture>
 
-        <!-- DATA -->
-        <section class="data-card" id="data">
-            <h2>Data</h2>
-            <dl>
-                <div class="row">
-                    <dt>Area:</dt>
-                    <dd>238,533 sq km</dd>
-                </div>
-                <div class="row">
-                    <dt>Population:</dt>
-                    <dd>35,857,363</dd>
-                </div>
-                <div class="row">
-                    <dt>Capital:</dt>
-                    <dd>Accra</dd>
-                </div>
-                <div class="row">
-                    <dt>Languages:</dt>
-                    <dd>English, Akan, Ewe, Ga</dd>
-                </div>
-                <div class="row">
-                    <dt>Currency:</dt>
-                    <dd>Ghana Cedi (GH₵)</dd>
-                </div>
-                <div class="row">
-                    <dt>Time Zone:</dt>
-                    <dd>GMT (UTC+0)</dd>
-                </div>
-                <div class="row">
-                    <dt>Calling Code:</dt>
-                    <dd>+233</dd>
-                </div>
-                <div class="row">
-                    <dt>Internet TLD:</dt>
-                    <dd>.gh</dd>
-                </div>
-            </dl>
-        </section>
+            <!-- DATA -->
+            <section class="data-card" id="data">
+                <h2>Data</h2>
+                <dl>
+                    <div class="row">
+                        <dt>Area:</dt>
+                        <dd>238,533 sq km</dd>
+                    </div>
+                    <div class="row">
+                        <dt>Population:</dt>
+                        <dd>35,857,363</dd>
+                    </div>
+                    <div class="row">
+                        <dt>Capital:</dt>
+                        <dd>Accra</dd>
+                    </div>
+                    <div class="row">
+                        <dt>Languages:</dt>
+                        <dd>English, Akan, Ewe, Ga</dd>
+                    </div>
+                    <div class="row">
+                        <dt>Currency:</dt>
+                        <dd>Ghana Cedi (GH₵)</dd>
+                    </div>
+                    <div class="row">
+                        <dt>Time Zone:</dt>
+                        <dd>GMT (UTC+0)</dd>
+                    </div>
+                    <div class="row">
+                        <dt>Calling Code:</dt>
+                        <dd>+233</dd>
+                    </div>
+                    <div class="row">
+                        <dt>Internet TLD:</dt>
+                        <dd>.gh</dd>
+                    </div>
+                </dl>
+            </section>
 
-        <!-- WEATHER -->
-        <section class="weather-card" id="weather">
-            <h2 class="weather-heading">Weather</h2>
+            <!-- WEATHER -->
+            <section class="weather-card" id="weather">
+                <h2 class="weather-heading">Weather</h2>
 
-            <!-- Mobile-only SVG weather icon (partly cloudy) -->
-            <svg class="weather-icon-mobile" viewBox="0 0 64 64" width="44" height="44" role="img"
-                aria-label="Partly cloudy">
-                <circle cx="22" cy="24" r="12" fill="#FCD116" />
-                <path
-                    d="M20 46c-7 0-12-5.5-12-12 0-6 4.3-11 10-12 2-6.5 8-11 15-11 8.6 0 15.6 6.7 16 15.1 5.7 1 10 6 10 12 0 6.6-5.4 12-12 12H20z"
-                    fill="#ffffff" stroke="#14110F" stroke-width="1.5" />
-            </svg>
+                <!-- Mobile-only SVG weather icon (partly cloudy) -->
+                <svg class="weather-icon-mobile" viewBox="0 0 64 64" width="44" height="44" role="img"
+                    aria-label="Partly cloudy">
+                    <circle cx="22" cy="24" r="12" fill="#FCD116" />
+                    <path
+                        d="M20 46c-7 0-12-5.5-12-12 0-6 4.3-11 10-12 2-6.5 8-11 15-11 8.6 0 15.6 6.7 16 15.1 5.7 1 10 6 10 12 0 6.6-5.4 12-12 12H20z"
+                        fill="#ffffff" stroke="#14110F" stroke-width="1.5" />
+                </svg>
 
-            <dl>
-                <div class="row">
-                    <dt>Temperature:</dt>
-                    <dd id="tempValue">29°C</dd>
-                </div>
-                <div class="row">
-                    <dt>Conditions:</dt>
-                    <dd>Partly Cloudy</dd>
-                </div>
-                <div class="row">
-                    <dt>Wind:</dt>
-                    <dd id="windValue">14 km/h</dd>
-                </div>
-                <div class="row">
-                    <dt>Wind Chill:</dt>
-                    <dd id="windChill">--</dd>
-                </div>
-            </dl>
-        </section>
-    </div>
+                <dl>
+                    <div class="row">
+                        <dt>Temperature:</dt>
+                        <dd id="tempValue">29°C</dd>
+                    </div>
+                    <div class="row">
+                        <dt>Conditions:</dt>
+                        <dd>Partly Cloudy</dd>
+                    </div>
+                    <div class="row">
+                        <dt>Wind:</dt>
+                        <dd id="windValue">14 km/h</dd>
+                    </div>
+                    <div class="row">
+                        <dt>Wind Chill:</dt>
+                        <dd id="windChill">--</dd>
+                    </div>
+                </dl>
+            </section>
+        </div>
+    </main>
+
+    <div class="stripe-bar" aria-hidden="true"></div>
 
     <!-- FOOTER -->
     <footer class="site-footer">
         <p>&copy; <span id="year"></span> MESHACK SEDOFIA &middot; Ghana</p>
         <p class="last-modified">Last Modification: <span id="lastModified"></span></p>
-        <p class="credit">Photo: "Cape Coast, Ghana" via Wikimedia Commons, CC BY-SA 3.0.</p>
+        <p class="credit">Hero artwork: original illustration.</p>
     </footer>
 
 </body>

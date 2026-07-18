@@ -11,10 +11,17 @@
     --color-red: #CE1126;
     --color-gold: #FCD116;
     --color-green: #006B3F;
-    --color-ink: #14110F;
-    --color-ink-soft: #3A3733;
+    --color-black: #000000;
+    --color-ink: #171310;
+    --color-ink-soft: #4A4038;
     --color-paper: #FFFFFF;
-    --color-card-bg: rgba(255, 255, 255, 0.94);
+    --color-gold-wash: #FFF7DC;
+    /* pale tint of the flag gold, used as page background */
+    --color-card-bg: rgba(255, 247, 220, 0.95);
+    --stripe: linear-gradient(90deg,
+            var(--color-red) 0 33.333%,
+            var(--color-gold) 33.333% 66.666%,
+            var(--color-green) 66.666% 100%);
 
     --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
     --font-body: 'Work Sans', 'Segoe UI', sans-serif;
@@ -30,7 +37,7 @@ body {
     margin: 0;
     font-family: var(--font-body);
     color: var(--color-ink);
-    background: var(--color-paper);
+    background: var(--color-gold-wash);
     line-height: 1.5;
 }
 
@@ -41,11 +48,17 @@ h2 {
     margin: 0;
 }
 
+/* Kente-inspired stripe rule, reused as a divider/signature element */
+.stripe-bar {
+    height: 6px;
+    background: var(--stripe);
+}
+
 /* ---------- Title bar ---------- */
 
 .title-bar {
-    background: var(--color-red);
-    border-bottom: 5px solid var(--color-green);
+    background: var(--color-black);
+    border-bottom: 6px solid var(--color-gold);
     padding: 1.25rem 1rem;
     text-align: center;
 }
@@ -54,6 +67,15 @@ h2 {
     color: var(--color-paper);
     font-size: clamp(1.75rem, 6vw, 2.75rem);
     letter-spacing: 0.02em;
+}
+
+.title-bar h1::before,
+.title-bar h1::after {
+    content: "★";
+    color: var(--color-red);
+    font-size: 0.6em;
+    margin: 0 0.5rem;
+    vertical-align: middle;
 }
 
 /* ---------- Hero + cards ---------- */
@@ -72,15 +94,16 @@ h2 {
 /* Data + Weather sections: stacked full-width blocks on narrow/mobile view */
 .data-card,
 .weather-card {
-    background: var(--color-paper);
+    background: var(--color-gold-wash);
     padding: 1rem 1.25rem 1.25rem;
+    border-top: 4px solid var(--color-green);
 }
 
 .data-card h2,
 .weather-card h2 {
     color: var(--color-green);
     font-size: 1.15rem;
-    border-bottom: 2px solid var(--color-green);
+    border-bottom: 2px solid var(--color-gold);
     padding-bottom: 0.4rem;
     margin-bottom: 0.6rem;
 }
@@ -95,7 +118,7 @@ h2 {
     justify-content: space-between;
     gap: 1rem;
     padding: 0.3rem 0;
-    border-bottom: 1px dashed #E3DFD5;
+    border-bottom: 1px dashed #D8C98A;
     font-size: 0.95rem;
 }
 
@@ -111,6 +134,7 @@ h2 {
 .row dd {
     margin: 0;
     font-weight: 600;
+    color: var(--color-red);
     text-align: right;
 }
 
@@ -140,19 +164,24 @@ h2 {
 /* ---------- Footer ---------- */
 
 .site-footer {
-    background: var(--color-red);
-    color: var(--color-paper);
+    background: var(--color-black);
+    color: var(--color-gold-wash);
     text-align: center;
     padding: 1rem;
     font-size: 0.85rem;
+    border-top: 4px solid var(--color-red);
 }
 
 .site-footer p {
     margin: 0.15rem 0;
 }
 
+.site-footer .last-modified {
+    color: var(--color-gold);
+}
+
 .site-footer .credit {
-    opacity: 0.85;
+    opacity: 0.75;
     font-size: 0.75rem;
 }
 
@@ -174,8 +203,10 @@ h2 {
         top: 1.5rem;
         width: 260px;
         background: var(--color-card-bg);
+        border: 1px solid var(--color-gold);
+        border-top: 4px solid var(--color-green);
         border-radius: var(--radius);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     }
 
     .data-card {
