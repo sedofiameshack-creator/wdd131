@@ -24,6 +24,9 @@
     --space-l: 3rem;
 
     --radius: 6px;
+
+    --shadow-rgb: 42, 31, 61;
+    --transparent: transparent;
 }
 
 * {
@@ -105,7 +108,7 @@ img {
 
 /* transform to an "X" when nav is open */
 .nav-toggle[aria-expanded="true"] .nav-toggle__icon {
-    background-color: transparent;
+    background-color: var(--transparent);
 }
 
 .nav-toggle[aria-expanded="true"] .nav-toggle__icon::before {
@@ -153,7 +156,7 @@ img {
     text-transform: uppercase;
     font-size: 0.85rem;
     padding-bottom: 2px;
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid var(--transparent);
     transition: border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -200,13 +203,13 @@ h1 {
     background-color: var(--alabaster);
     border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(42, 31, 61, 0.12);
+    box-shadow: 0 1px 3px rgba(var(--shadow-rgb), 0.12);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .temple-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(42, 31, 61, 0.18);
+    box-shadow: 0 8px 20px rgba(var(--shadow-rgb), 0.18);
 }
 
 .temple-card figcaption {
@@ -258,4 +261,55 @@ footer {
 
 footer p {
     margin: 0.25rem 0;
+}
+
+/* ============================================
+   Large viewport overrides (formerly a
+   separate temples-large.css file, now a
+   single @media block to keep all rules in
+   one stylesheet)
+   ============================================ */
+
+@media (min-width: 48rem) {
+
+    .site-header {
+        padding: var(--space-s) var(--space-l);
+    }
+
+    .site-title {
+        font-size: 1.85rem;
+    }
+
+    /* Hamburger button no longer needed on large screens */
+    .nav-toggle {
+        display: none;
+    }
+
+    /* Nav reverts to an inline flex row instead of an off-canvas panel */
+    .primary-nav {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        background-color: var(--transparent);
+        border-bottom: none;
+    }
+
+    .primary-nav ul {
+        flex-direction: row;
+        padding: 0;
+        gap: var(--space-l);
+    }
+
+    main {
+        padding: var(--space-l) var(--space-l) 4rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .temple-grid {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        gap: var(--space-l) var(--space-m);
+    }
 }
