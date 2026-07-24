@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Temple Album | WDD 131</title>
+    <meta name="description"
+        content="A responsive, dynamically-filtered photo album of temples from around the world, built for WDD 131.">
+
+    <!-- Google Fonts: Cormorant Garamond (display) + Source Sans 3 (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Mobile-first CSS, then large-view override -->
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <link rel="stylesheet" href="styles/filtered-temples-large.css" media="(min-width: 48rem)">
+
+    <script src="scripts/filtered-temples.js" defer></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <p class="site-title">Temple Album</p>
+
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav"
+            aria-label="Toggle navigation menu">
+            <span class="nav-toggle__icon" aria-hidden="true"></span>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav">
+            <ul>
+                <li><a href="#" class="nav-link is-active" data-filter="all">Home</a></li>
+                <li><a href="#" class="nav-link" data-filter="old">Old</a></li>
+                <li><a href="#" class="nav-link" data-filter="new">New</a></li>
+                <li><a href="#" class="nav-link" data-filter="large">Large</a></li>
+                <li><a href="#" class="nav-link" data-filter="small">Small</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>A Gallery of Temples</h1>
+        <p class="lede">Explore temples from around the world, spanning more than a century of design. Use the menu
+            above to filter by age or size.</p>
+
+        <div class="temple-grid" id="temple-grid">
+            <!-- Temple cards are generated dynamically by filtered-temples.js -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Temple Album &middot; Meshack Sedofia</p>
+        <p id="last-modified"></p>
+    </footer>
+
+</body>
+
+</html>
