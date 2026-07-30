@@ -1,0 +1,266 @@
+/* ===== Custom properties ===== */
+:root {
+    --color-bg: #14110f;
+    --color-cream: #f2ede4;
+    --color-gold: #e8a33d;
+    --color-teal: #2c5f5a;
+
+    --font-display: "Bebas Neue", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+}
+
+/* ===== Base ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-cream);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: 0 1.25rem 3rem;
+}
+
+h1,
+h2 {
+    font-family: var(--font-display);
+    letter-spacing: 0.03em;
+    color: var(--color-gold);
+    margin: 0;
+}
+
+a {
+    color: var(--color-teal);
+}
+
+.mono {
+    font-family: var(--font-mono);
+}
+
+/* ===== Header ===== */
+.site-header {
+    text-align: center;
+    padding: 2.5rem 0 1.5rem;
+    border-bottom: 1px solid var(--color-teal);
+    margin-bottom: 2rem;
+}
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-teal);
+    margin: 0 0 0.5rem;
+}
+
+.site-header h1 {
+    font-size: 3rem;
+}
+
+.tagline {
+    margin: 0.25rem 0 0;
+    color: var(--color-cream);
+    opacity: 0.8;
+}
+
+/* ===== Sections ===== */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.plan-section {
+    position: relative;
+    background-color: rgba(242, 237, 228, 0.04);
+    border: 1px solid rgba(44, 95, 90, 0.4);
+    border-radius: 6px;
+    padding: 1.75rem 1.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.plan-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.reel-number {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    font-family: var(--font-mono);
+    color: var(--color-teal);
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+.domain-note {
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+/* ===== Scenarios ===== */
+.scenario-list {
+    padding-left: 1.25rem;
+}
+
+.scenario-list li {
+    margin-bottom: 0.6rem;
+}
+
+/* ===== Color swatches ===== */
+.swatch-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.swatch {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.swatch-color {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 4px;
+    border: 1px solid rgba(242, 237, 228, 0.3);
+    flex-shrink: 0;
+}
+
+.swatch-label {
+    font-size: 0.9rem;
+}
+
+/* ===== Typography samples ===== */
+.type-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.type-list li {
+    padding: 0.9rem 0;
+    border-top: 1px solid rgba(44, 95, 90, 0.4);
+}
+
+.type-list li:first-child {
+    border-top: none;
+}
+
+.type-sample {
+    margin: 0 0 0.4rem;
+}
+
+.display-sample {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-gold);
+    letter-spacing: 0.03em;
+}
+
+.body-sample {
+    font-family: var(--font-body);
+}
+
+.mono-sample {
+    font-family: var(--font-mono);
+    color: var(--color-teal);
+}
+
+.type-caption {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    margin: 0;
+}
+
+/* ===== Wireframes ===== */
+.wireframes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.wireframe {
+    margin: 0;
+}
+
+.wireframe figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+}
+
+.wireframe-mobile {
+    max-width: 240px;
+}
+
+.wf-box {
+    border: 1px dashed rgba(242, 237, 228, 0.4);
+    border-radius: 3px;
+    padding: 0.6rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    text-align: center;
+    opacity: 0.85;
+}
+
+.wf-grid {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.mobile-grid {
+    grid-template-columns: 1fr;
+}
+
+.wf-grid span {
+    border: 1px dashed rgba(242, 237, 228, 0.4);
+    border-radius: 3px;
+    padding: 0.6rem;
+    font-size: 0.7rem;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 2rem;
+}
+
+/* ===== Media query: desktop / wider viewports ===== */
+@media screen and (min-width: 700px) {
+    .site-header h1 {
+        font-size: 4rem;
+    }
+
+    .swatch-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .wireframes {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .wireframe-desktop {
+        flex: 1;
+    }
+
+    .desktop-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

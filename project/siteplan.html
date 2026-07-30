@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Makaveli">
+    <meta name="description" content="Website planning document for ReelTrack, a movie watchlist and review site.">
+    <title>Site Plan | ReelTrack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <p class="eyebrow">WDD 131 &middot; Project Planning</p>
+        <h1>ReelTrack</h1>
+        <p class="tagline">Website Planning Document</p>
+    </header>
+
+    <main>
+
+        <section class="plan-section" id="site-name" aria-labelledby="site-name-heading">
+            <h2 id="site-name-heading">Site Name</h2>
+            <p class="reel-number">01</p>
+            <p><strong>ReelTrack</strong></p>
+            <p>The name pairs "reel," the film canister that carries every movie ever projected, with "track," the act
+                of following what you watch and what you still want to see. Together they describe exactly what the site
+                does: it helps someone keep a running record of films watched, rated, and queued up next.</p>
+            <p class="domain-note">Optional domain availability: <span class="mono">reeltrack.app</span></p>
+        </section>
+
+        <section class="plan-section" id="site-purpose" aria-labelledby="site-purpose-heading">
+            <h2 id="site-purpose-heading">Site Purpose</h2>
+            <p class="reel-number">02</p>
+            <p>ReelTrack gives film fans a personal hub for managing what they watch. Visitors can browse a shared
+                library of movies, add titles to a personal watchlist, log ratings and short reviews once they've seen
+                something, and filter the library by genre or release year to decide what to watch next.</p>
+        </section>
+
+        <section class="plan-section" id="scenarios" aria-labelledby="scenarios-heading">
+            <h2 id="scenarios-heading">Scenarios</h2>
+            <p class="reel-number">03</p>
+            <ul class="scenario-list">
+                <li>I just finished a movie and want to log my rating and a short review before I forget my thoughts
+                    &mdash; how do I do that?</li>
+                <li>I have twenty minutes before I need to leave &mdash; what's a short, highly rated movie I've already
+                    added to my watchlist?</li>
+                <li>I loved a director's last film &mdash; how can I filter the library to find similar titles by genre?
+                </li>
+            </ul>
+        </section>
+
+        <section class="plan-section" id="color-schema" aria-labelledby="color-schema-heading">
+            <h2 id="color-schema-heading">Color Schema</h2>
+            <p class="reel-number">04</p>
+            <p>The palette borrows from a dim theater: a near-black auditorium background, a marquee gold that recalls
+                house lights and ticket stubs, and a muted teal that reads as calm and cinematic rather than loud.</p>
+            <ul class="swatch-list">
+                <li class="swatch">
+                    <span class="swatch-color" style="background-color:#14110F;"></span>
+                    <span class="swatch-label">Cinema Black &mdash; <span class="mono">#14110F</span><br>Page
+                        background, footer</span>
+                </li>
+                <li class="swatch">
+                    <span class="swatch-color" style="background-color:#F2EDE4;"></span>
+                    <span class="swatch-label">Screen Cream &mdash; <span class="mono">#F2EDE4</span><br>Body text, card
+                        backgrounds</span>
+                </li>
+                <li class="swatch">
+                    <span class="swatch-color" style="background-color:#E8A33D;"></span>
+                    <span class="swatch-label">Marquee Gold &mdash; <span class="mono">#E8A33D</span><br>Headings,
+                        buttons, active states</span>
+                </li>
+                <li class="swatch">
+                    <span class="swatch-color" style="background-color:#2C5F5A;"></span>
+                    <span class="swatch-label">Velvet Teal &mdash; <span class="mono">#2C5F5A</span><br>Links, borders,
+                        secondary accents</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="plan-section" id="typography" aria-labelledby="typography-heading">
+            <h2 id="typography-heading">Typography</h2>
+            <p class="reel-number">05</p>
+            <ul class="type-list">
+                <li>
+                    <p class="type-sample display-sample">Now Showing</p>
+                    <p class="type-caption"><strong>Bebas Neue</strong> &mdash; condensed display face used for headings
+                        and the site logotype, like lettering on a marquee.</p>
+                </li>
+                <li>
+                    <p class="type-sample body-sample">A quiet, well-paced drama with a career-best lead performance.
+                    </p>
+                    <p class="type-caption"><strong>Inter</strong> &mdash; body face used for paragraphs, reviews, and
+                        navigation labels.</p>
+                </li>
+                <li>
+                    <p class="type-sample mono-sample">8.4 / 10 &nbsp;&middot;&nbsp; 2h 11m</p>
+                    <p class="type-caption"><strong>JetBrains Mono</strong> &mdash; utility face used for ratings,
+                        runtimes, and release years.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="plan-section" id="wireframes" aria-labelledby="wireframes-heading">
+            <h2 id="wireframes-heading">Wireframes</h2>
+            <p class="reel-number">06</p>
+            <p>Home page layout for mobile (single column) and desktop (wider, multi-column grid).</p>
+            <div class="wireframes">
+                <figure class="wireframe wireframe-mobile">
+                    <figcaption>Mobile</figcaption>
+                    <div class="wf-box wf-header">Header + Logo</div>
+                    <div class="wf-box wf-nav">Nav (collapsed menu)</div>
+                    <div class="wf-box wf-hero">Hero: featured title</div>
+                    <div class="wf-box wf-filter">Filter bar (genre / year)</div>
+                    <div class="wf-box wf-grid mobile-grid">
+                        <span>Card</span><span>Card</span>
+                    </div>
+                    <div class="wf-box wf-footer">Footer</div>
+                </figure>
+                <figure class="wireframe wireframe-desktop">
+                    <figcaption>Desktop</figcaption>
+                    <div class="wf-box wf-header">Header + Logo</div>
+                    <div class="wf-box wf-nav">Nav (Home / Watchlist / About)</div>
+                    <div class="wf-box wf-hero">Hero: featured title</div>
+                    <div class="wf-box wf-filter">Filter bar (genre / year / rating)</div>
+                    <div class="wf-box wf-grid desktop-grid">
+                        <span>Card</span><span>Card</span><span>Card</span><span>Card</span>
+                    </div>
+                    <div class="wf-box wf-footer">Footer</div>
+                </figure>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>ReelTrack site plan &mdash; WDD 131, Web Fundamentals</p>
+    </footer>
+
+</body>
+
+</html>
