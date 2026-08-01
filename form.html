@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Review Form</title>
+    <meta name="description"
+        content="Submit a review for a workshop product: rate it, note the installation date, and share useful features." />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="scripts/products.js" defer></script>
+    <script src="scripts/form.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <span class="site-header__eyebrow">Workshop Log</span>
+        <h1>Product Review</h1>
+        <p>Tell us how it performed once it was installed.</p>
+    </header>
+
+    <main>
+        <form class="review-card" method="get" action="review.html">
+            <fieldset>
+                <legend>Product</legend>
+
+                <div class="field">
+                    <label for="product">Product name</label>
+                    <select id="product" name="product" required>
+                        <option value="" disabled selected>Select a Product ...</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Rating &amp; use</legend>
+
+                <div class="field">
+                    <label id="ratingLabel">Overall rating</label>
+                    <div class="star-rating" role="radiogroup" aria-labelledby="ratingLabel">
+                        <input type="radio" id="star5" name="rating" value="5" required />
+                        <label for="star5" title="5 stars">&star;</label>
+
+                        <input type="radio" id="star4" name="rating" value="4" required />
+                        <label for="star4" title="4 stars">&star;</label>
+
+                        <input type="radio" id="star3" name="rating" value="3" required />
+                        <label for="star3" title="3 stars">&star;</label>
+
+                        <input type="radio" id="star2" name="rating" value="2" required />
+                        <label for="star2" title="2 stars">&star;</label>
+
+                        <input type="radio" id="star1" name="rating" value="1" required />
+                        <label for="star1" title="1 star">&star;</label>
+                    </div>
+                    <p class="star-rating__hint">1 = poor &middot; 5 = excellent</p>
+                </div>
+
+                <div class="field">
+                    <label for="installDate">Date of installation</label>
+                    <input type="date" id="installDate" name="installDate" required />
+                </div>
+
+                <div class="field">
+                    <label id="featuresLabel">Which features did you find useful?</label>
+                    <div class="checkbox-grid" role="group" aria-labelledby="featuresLabel">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature-durability" name="features" value="durability" />
+                            <label for="feature-durability">Durability</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature-ease" name="features" value="ease-of-use" />
+                            <label for="feature-ease">Ease of use</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature-performance" name="features" value="performance" />
+                            <label for="feature-performance">Performance</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature-design" name="features" value="design" />
+                            <label for="feature-design">Design</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Your notes</legend>
+
+                <div class="field">
+                    <label for="review">Written review <span class="optional">(optional)</span></label>
+                    <textarea id="review" name="review" rows="5" placeholder="How did it hold up?"></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="username">Your name <span class="optional">(optional)</span></label>
+                    <input type="text" id="username" name="username" placeholder="Marty McFly" />
+                </div>
+            </fieldset>
+
+            <input type="submit" value="Post review" />
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="year"></span> SEDOFIA MESHACK</p>
+        <p>Last modification: <span id="lastModified"></span></p>
+    </footer>
+</body>
+
+</html>

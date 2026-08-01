@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Submitted &mdash; Product Review Form</title>
+    <meta name="description" content="Confirmation page shown after submitting a product review." />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="scripts/products.js" defer></script>
+    <script src="scripts/review.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <span class="site-header__eyebrow">Workshop Log</span>
+        <h1>Review Received</h1>
+        <p>Here's what was recorded.</p>
+    </header>
+
+    <main>
+        <section class="confirmation-card">
+            <span class="confirmation-badge">Submitted</span>
+            <h1>Thanks for the review</h1>
+            <p class="confirmation-counter">
+                This is review number <strong id="reviewCount">1</strong> logged on this device.
+            </p>
+
+            <dl class="summary-list">
+                <li>
+                    <dt>Product</dt>
+                    <dd id="summaryProduct">&mdash;</dd>
+                </li>
+                <li>
+                    <dt>Overall rating</dt>
+                    <dd id="summaryRating">&mdash;</dd>
+                </li>
+                <li>
+                    <dt>Date of installation</dt>
+                    <dd id="summaryDate">&mdash;</dd>
+                </li>
+                <li>
+                    <dt>Useful features</dt>
+                    <dd id="summaryFeatures">&mdash;</dd>
+                </li>
+                <li>
+                    <dt>Written review</dt>
+                    <dd id="summaryReview">&mdash;</dd>
+                </li>
+                <li>
+                    <dt>Submitted by</dt>
+                    <dd id="summaryName">&mdash;</dd>
+                </li>
+            </dl>
+
+            <a class="back-link" href="form.html">&larr; Submit another review</a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="year"></span> Product Review Form</p>
+        <p>Last modification: <span id="lastModified"></span></p>
+    </footer>
+</body>
+
+</html>

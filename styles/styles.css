@@ -1,0 +1,426 @@
+/* ===========================================================
+   Product Review Form — "Time Circuits" workshop theme
+   =========================================================== */
+
+:root {
+    --bg: #14121f;
+    --bg-header-footer: #1e1a33;
+    --bg-panel: #1c1a2c;
+    --bg-panel-raised: #242138;
+    --line: #38334f;
+    --text: #f1eef7;
+    --text-muted: #9891ad;
+    --accent: #a78bfa;
+    --accent-dim: #4c3f7a;
+    --accent-secondary: #38e0d8;
+    --success: #4ade80;
+    --danger: #ff6b6b;
+    --radius: 10px;
+    --radius-lg: 16px;
+    --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", "Courier New", monospace;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% -10%, rgba(167, 139, 250, 0.1), transparent 45%),
+        radial-gradient(circle at 100% 0%, rgba(56, 224, 216, 0.08), transparent 40%),
+        var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: var(--accent-secondary);
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+    background: var(--bg-header-footer);
+    padding: 1.75rem 1.25rem 1.25rem;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+}
+
+.site-header__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.site-header__eyebrow::before,
+.site-header__eyebrow::after {
+    content: "";
+    width: 1.5rem;
+    height: 1px;
+    background: var(--accent-dim);
+}
+
+.site-header h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 5vw, 2.25rem);
+    margin: 0.5rem 0 0.35rem;
+    letter-spacing: -0.01em;
+}
+
+.site-header p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ---------- Main / card ---------- */
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1.25rem 3rem;
+}
+
+.review-card {
+    width: 100%;
+    max-width: 560px;
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+legend {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-secondary);
+    padding: 0 0 0.6rem;
+}
+
+.field {
+    margin-bottom: 1.4rem;
+}
+
+.field:last-of-type {
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin-bottom: 0.4rem;
+}
+
+label .optional {
+    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+select,
+input[type="date"],
+input[type="text"],
+textarea {
+    width: 100%;
+    background: var(--bg-panel-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.65rem 0.75rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+select:focus-visible,
+input[type="date"]:focus-visible,
+input[type="text"]:focus-visible,
+textarea:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 176, 32, 0.2);
+}
+
+select {
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+        linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1.1rem), calc(100% - 15px) calc(1.1rem);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+}
+
+select:required:invalid {
+    color: var(--text-muted);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* ---------- Star rating ---------- */
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0.15rem;
+}
+
+.star-rating input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+.star-rating label {
+    font-size: 2.1rem;
+    line-height: 1;
+    color: var(--line);
+    cursor: pointer;
+    margin: 0;
+    transition: color 0.1s ease, transform 0.1s ease;
+}
+
+.star-rating input:checked~label,
+.star-rating label:hover,
+.star-rating label:hover~label {
+    color: var(--accent);
+}
+
+.star-rating input:focus-visible+label {
+    outline: 2px solid var(--accent-secondary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.star-rating__hint {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+/* ---------- Checkboxes ---------- */
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem 1rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: var(--bg-panel-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.75rem;
+}
+
+.checkbox-item input {
+    width: 1.05rem;
+    height: 1.05rem;
+    accent-color: var(--accent);
+}
+
+.checkbox-item label {
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* ---------- Submit ---------- */
+
+input[type="submit"] {
+    width: 100%;
+    margin-top: 0.5rem;
+    background: var(--accent);
+    color: #14121f;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+input[type="submit"]:hover {
+    filter: brightness(1.08);
+}
+
+input[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+input[type="submit"]:focus-visible {
+    outline: 3px solid var(--accent-secondary);
+    outline-offset: 2px;
+}
+
+/* ---------- Confirmation page ---------- */
+
+.confirmation-card {
+    width: 100%;
+    max-width: 560px;
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+}
+
+.confirmation-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--success);
+    background: rgba(74, 222, 128, 0.12);
+    border: 1px solid rgba(74, 222, 128, 0.35);
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+}
+
+.confirmation-card h1 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    margin: 0.75rem 0 0.25rem;
+}
+
+.confirmation-counter {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0 0 1.5rem;
+}
+
+.confirmation-counter strong {
+    color: var(--accent);
+}
+
+.summary-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+}
+
+.summary-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.92rem;
+}
+
+.summary-list dt {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.summary-list dd {
+    margin: 0;
+    text-align: right;
+    max-width: 60%;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+    background: var(--bg-header-footer);
+    border-top: 1px solid var(--line);
+    padding: 1.25rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+
+.site-footer p {
+    margin: 0.15rem 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 480px) {
+
+    .review-card,
+    .confirmation-card {
+        padding: 1.5rem;
+        border-radius: var(--radius);
+    }
+
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .star-rating label {
+        font-size: 1.8rem;
+    }
+
+    .summary-list li {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .summary-list dd {
+        text-align: left;
+        max-width: 100%;
+    }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
