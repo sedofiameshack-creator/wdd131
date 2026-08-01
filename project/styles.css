@@ -135,6 +135,22 @@ main {
     flex-shrink: 0;
 }
 
+.swatch-color--black {
+    background-color: var(--color-bg);
+}
+
+.swatch-color--cream {
+    background-color: var(--color-cream);
+}
+
+.swatch-color--gold {
+    background-color: var(--color-gold);
+}
+
+.swatch-color--teal {
+    background-color: var(--color-teal);
+}
+
 .swatch-label {
     font-size: 0.9rem;
 }
